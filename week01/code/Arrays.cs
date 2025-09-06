@@ -60,7 +60,6 @@ public static class Arrays
 
         int[] rotate = new int[n];
 
-        // Shift each element by k positions
         for (int i = 0; i < n; i++)
         {
             int newIndex = (i + k) % n;
