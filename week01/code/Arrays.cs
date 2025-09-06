@@ -13,7 +13,24 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return []; // replace this return statement with your own
+        // STEPS
+        // 1. Create a list to hold multiples.
+        // 2. create a loop(i) and iterate from 1 to length.
+        // 3. Compute number * i and save it to a local multiple variable.
+        // 4. Add the multiple results to the multipleList list
+        // 4. Convert multipleList to array and return it.
+
+        List<double> multipleList = new List<double>();
+
+        for (int i = 1; i <= length; ++i)
+        {
+            double multiple = number * i;
+
+            multipleList.Add(multiple);
+
+        }
+
+        return multipleList.ToArray();// replace this return statement with your own
     }
 
     /// <summary>
@@ -29,5 +46,31 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+
+        // STEPS
+        //1. Save the data array size in a variable 'n'
+        //2. Find the actual positon to rotate (k = amount % n) 
+        //3. Create a new list (rotate) to hold the rotated items
+        //4. Loop through the array and assign new index for the original items (the index they will have after rotation)
+        //5. Save the original array element in the new rotate array with their respective indexes  
+        //6. Loop through the array and copy the items in the rotate array back to the data array 
+
+        int n = data.Count;
+        int k = amount % n;
+
+        int[] rotate = new int[n];
+
+        // Shift each element by k positions
+        for (int i = 0; i < n; i++)
+        {
+            int newIndex = (i + k) % n;
+            rotate[newIndex] = data[i];
+        }
+
+        for (int i = 0; i < n; i++)
+        {
+            data[i] = rotate[i];
+        }
+
     }
 }
